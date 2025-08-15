@@ -21,3 +21,5 @@ add_library(LECTranslate MODULE
 	src/lectranslate.cpp
 	src/extensionimpl.cpp
 )
+
+set_property(TARGET LECTranslate PROPERTY CXX_STANDARD 17)
