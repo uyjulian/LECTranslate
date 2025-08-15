@@ -5,12 +5,6 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-if(WIN32)
-	add_definitions(-static -static-libgcc -static-libstdc++)
-endif()
-
-add_definitions(-DUNICODE -D_UNICODE)
-
 set(CMAKE_SHARED_MODULE_PREFIX "")
 
 include_directories(
@@ -23,3 +17,8 @@ add_library(LECTranslate MODULE
 )
 
 set_property(TARGET LECTranslate PROPERTY CXX_STANDARD 17)
+
+if(WIN32)
+	target_compile_definitions(LECTranslate PUBLIC UNICODE _UNICODE)
+	target_link_options(LECTranslate PUBLIC -static -static-libgcc -static-libstdc++)
+endif()
