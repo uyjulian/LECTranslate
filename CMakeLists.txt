@@ -20,5 +20,5 @@ set_property(TARGET LECTranslate PROPERTY CXX_STANDARD 17)
 
 if(WIN32)
 	target_compile_definitions(LECTranslate PUBLIC UNICODE _UNICODE)
-	target_link_options(LECTranslate PUBLIC -static -static-libgcc -static-libstdc++)
+	target_link_options(LECTranslate PUBLIC -static -static-libgcc -static-libstdc++ -municode)
 endif()
